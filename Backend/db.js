@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-// const mongoURI = 'mongodb+srv://FF_cafe:Nayan123@cluster0.bcfcnvn.mongodb.net/FF_cafe?retryWrites=true&w=majority'
+
 
 const mongoDB = async () => {
     try {
