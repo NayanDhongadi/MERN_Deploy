@@ -10,9 +10,12 @@ export default function Home() {
     const [search, setSearch] = useState('');
     const [foodCat, setFoodCat] = useState([]);
     const [foodItem, setFoodItem] = useState([]);
+    
+    // require('dotenv').config()
+
 
     const loadData = async () => {
-        let response = await fetch("http://localhost:5000/api/foodData", {
+        let response = await fetch(`${process.env.REACT_APP_BACKENDURL}/api/foodData`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -46,7 +49,7 @@ export default function Home() {
                     <div className="carousel-inner" id='carousel' >
                         <div className="carousel-caption " style={{ zIndex: "10" }}>
                             <div className="d-flex justify-content-center">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} />
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
                                 {/* <button className="btn btn-outline-success text-white bg-success" type="submit">Search</button> */}
                             </div>
                         </div>
@@ -102,13 +105,13 @@ export default function Home() {
 
                                 {typeof (foodItem) !== null
                                     ?
-                                    foodItem.filter((item) => (item.CategoryName === data.CategoryName)  && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))
+                                    foodItem.filter((item) => (item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(search.toLocaleLowerCase())))
                                         .map(filterItems => {
                                             return (
                                                 <div key={filterItems._id} className='col-12 col-md-6 col-lg-3 '>
                                                     <Card foodItems={filterItems}
                                                         options={filterItems.options[0]}
-                                                        />
+                                                    />
 
 
                                                 </div>
