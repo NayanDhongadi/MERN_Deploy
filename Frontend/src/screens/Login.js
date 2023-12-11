@@ -8,7 +8,7 @@ function Login() {
 let navigate = useNavigate()
   const handleSubmit = async(e)=>{
       e.preventDefault();
-      const response = await fetch("http://localhost:5000/api/loginuser",{
+      const response = await fetch("mern-project-backend-silk.vercel.app/api/loginuser",{
           method:"POST",
           headers:{
               "Content-Type":"application/json"
