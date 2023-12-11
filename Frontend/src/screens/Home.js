@@ -12,7 +12,7 @@ export default function Home() {
     const [foodItem, setFoodItem] = useState([]);
 
     const loadData = async () => {
-        let response = await fetch("mern-project-backend-silk.vercel.app/api/foodData", {
+        let response = await fetch("https://mern-project-backend-silk.vercel.app/api/foodData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
