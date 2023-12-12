@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 5000
-const mongoDB = require("./db")
 require('dotenv').config()
+
+const port = process.env.PORT || 5000;
+const mongoDB = require("./db")
 
 app.use(async(req,res,next)=>{
   await res.setHeader("Access-Control-Allow-Origin",process.env.REACT_APP_FRONTEND_URL);
