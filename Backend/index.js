@@ -5,6 +5,13 @@ require('dotenv').config()
 const port = process.env.PORT || 5000;
 const mongoDB = require("./db")
 
+const corsOptions = {
+  origin: 'https://mern-deploy-frontend.vercel.app/',
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
+
 app.use(async(req,res,next)=>{
   await res.setHeader("Access-Control-Allow-Origin",process.env.REACT_APP_FRONTEND_URL);
   res.header(
